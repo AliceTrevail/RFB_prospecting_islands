@@ -23,7 +23,7 @@ imm_islands <- imm_tracks %>%
   filter(at_island == TRUE) %>%
   select(BirdID, age, sex, Year, DateTime, deployment_colony, tracking_duration, 
          VisitID, night_visit, visit_type,
-         Island_Atoll, Island, Group, Atoll) %>%
+         Island_Atoll, Island, Group, Atoll)
   
 glimpse(imm_islands)
 
@@ -43,6 +43,7 @@ imm_islands_count <- imm_islands %>%
             Island_Atoll, Island, Group, Atoll),
             n_visits = n(),
             total_visit_duration = sum(visit_duration_hrs),
+            n_visits_night = sum(night_visit == TRUE),
             n_cpf = sum(visit_type == "CPF"),
             n_Prospect_Forage = sum(visit_type == "Prospect_Forage"),
             n_Direct_Prospect = sum(visit_type == "Direct_Prospect"))
@@ -93,12 +94,14 @@ combined_data <- all_combinations %>%
         Island_Atoll,
         n_visits,
         total_visit_duration,
+        n_visits_night,
         n_cpf,
         n_Prospect_Forage,
         n_Direct_Prospect),
     by = c("BirdID", "Island_Atoll")) %>%
   mutate(n_visits = replace_na(n_visits, 0),
          total_visit_duration = replace_na(total_visit_duration, 0),
+         n_visits_night = replace_na(n_visits_night, 0),
          n_cpf = replace_na(n_cpf, 0),
          n_Prospect_Forage = replace_na(n_Prospect_Forage, 0),
          n_Direct_Prospect = replace_na(n_Direct_Prospect, 0)) %>%
