@@ -160,10 +160,7 @@ map_names <- map_base+
   geom_text(aes(x = 72.3, y=-5.37), label = "Salomon\natoll", hjust = 0, cex = 2.9, lineheight = 1)+
   geom_text(aes(x = 71.7, y=-5.34), label = "Peros Banhos\natoll", hjust = 1, cex = 2.9, lineheight = 1)
 
-
-ggsave(plot = map_names, filename = "Figures/Separate Chagos maps/map_names.png",
-       width = 12, height = 12, units = "cm")
-
+map_names
 
 #### Island size & rat presence ####
 
@@ -235,9 +232,6 @@ map_colsize <- map_colsize + guides(size = guide_legend(override.aes = list(shap
 map_colsize
 
 
-ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_RFB.png",
-       width = 16, height = 12, units = "cm")
-
 
 #### Seabird diversity & richness ####
 
@@ -247,9 +241,6 @@ map_diversity <- map_base+
   scale_colour_viridis_c(name = "Seabird\nrichness\n(no. species)")
 map_diversity
 
-
-ggsave(plot = map_diversity, filename = "Figures/Separate Chagos maps/map_diversity.png",
-       width = 16, height = 12, units = "cm")
 
 
 
@@ -311,142 +302,142 @@ write_csv(island_metrics, "Data/island_metrics.csv")
 #   theme_void()
 # map_IO_presentation
 
-
-### Plot other species for Steve
-
-### Sooty tern 
-
-map_colsize <- map_base+
-  geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Onychoprion.fuscatus), inherit.aes = FALSE, col = "steelblue2")+
-  geom_point(data = subset(island_metrics, Onychoprion.fuscatus == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
-  scale_size(name = "Sooty tern\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 1000, 2000, 4000, 8000))
-
-# pull out legend details to override 
-map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
-  mutate(colsize = island_metrics$Onychoprion.fuscatus, sqrt_colsize = sqrt(colsize))
-#ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
-legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,1000,2000,4000,8000))))
-
-map_Onychoprion.fuscatus <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19,19,19,19),
-                                                                            size = c(1,legend_colsizes))))
-map_Onychoprion.fuscatus
-
-
-ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Onychoprion_fuscatus.png",
-       width = 16, height = 12, units = "cm")
-
-
-
-### Brown noddy
-
-map_colsize <- map_base+
-  geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Anous.stolidus), inherit.aes = FALSE, col = "steelblue2")+
-  geom_point(data = subset(island_metrics, Anous.stolidus == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
-  scale_size(name = "Brown noddy\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 500))
-
-# pull out legend details to override 
-map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
-  mutate(colsize = island_metrics$Anous.stolidus, sqrt_colsize = sqrt(colsize))
-#ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
-legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,500))))
-
-map_Anous.stolidus <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19),
-                                                                                         size = c(1,legend_colsizes))))
-map_Anous.stolidus
-
-
-ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Anous_stolidus.png",
-       width = 16, height = 12, units = "cm")
-
-
-### Lesser noddy
-
-map_colsize <- map_base+
-  geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Anous.tenuirostris), inherit.aes = FALSE, col = "steelblue2")+
-  geom_point(data = subset(island_metrics, Anous.tenuirostris == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
-  scale_size(name = "Lesser noddy\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 1000, 2000, 4000, 8000))
-
-# pull out legend details to override 
-map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
-  mutate(colsize = island_metrics$Anous.tenuirostris, sqrt_colsize = sqrt(colsize))
-#ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
-legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,1000,2000,4000,8000))))
-
-map_Anous.tenuirostris <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19,19,19,19),
-                                                                                         size = c(1,legend_colsizes))))
-map_Anous.tenuirostris
-
-
-ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Anous_tenuirostris.png",
-       width = 16, height = 12, units = "cm")
-
-
-
-### White tern
-
-map_colsize <- map_base+
-  geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Gygis.alba), inherit.aes = FALSE, col = "steelblue2")+
-  geom_point(data = subset(island_metrics, Gygis.alba == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
-  scale_size(name = "White tern\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 100))
-
-# pull out legend details to override 
-map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
-  mutate(colsize = island_metrics$Gygis.alba, sqrt_colsize = sqrt(colsize))
-#ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
-legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,100))))
-
-map_Gygis.alba <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19),
-                                                                                       size = c(1,legend_colsizes))))
-map_Gygis.alba
-
-
-ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Gygis_alba.png",
-       width = 16, height = 12, units = "cm")
-
-
-
-
-### Tropical shearwater
-
-map_colsize <- map_base+
-  geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Puffinus.bailloni), inherit.aes = FALSE, col = "steelblue2")+
-  geom_point(data = subset(island_metrics, Puffinus.bailloni == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
-  scale_size(name = "Tropical shearwater\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 500, 1000))
-
-# pull out legend details to override 
-map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
-  mutate(colsize = island_metrics$Puffinus.bailloni, sqrt_colsize = sqrt(colsize))
-#ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
-legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,500, 1000))))
-
-map_Puffinus.bailloni <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19,19),
-                                                                                       size = c(1,legend_colsizes))))
-map_Puffinus.bailloni
-
-
-ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Puffinus_bailloni.png",
-       width = 16, height = 12, units = "cm")
-
-
-
-### Wedge-tailed shearwater
-
-map_colsize <- map_base+
-  geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Ardenna.pacifica), inherit.aes = FALSE, col = "steelblue2")+
-  geom_point(data = subset(island_metrics, Ardenna.pacifica == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
-  scale_size(name = "Wedge-tailed shearwater\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 500, 1000, 2000))
-
-# pull out legend details to override 
-map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
-  mutate(colsize = island_metrics$Ardenna.pacifica, sqrt_colsize = sqrt(colsize))
-#ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
-legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,500,1000,2000))))
-
-map_Ardenna.pacifica <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19,19, 19),
-                                                                                      size = c(1,legend_colsizes))))
-map_Ardenna.pacifica
-
-
-ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Ardenna_pacifica.png",
-       width = 16, height = 12, units = "cm")
-
+# 
+# ### Plot other species for Steve
+# 
+# ### Sooty tern 
+# 
+# map_colsize <- map_base+
+#   geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Onychoprion.fuscatus), inherit.aes = FALSE, col = "steelblue2")+
+#   geom_point(data = subset(island_metrics, Onychoprion.fuscatus == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
+#   scale_size(name = "Sooty tern\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 1000, 2000, 4000, 8000))
+# 
+# # pull out legend details to override 
+# map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
+#   mutate(colsize = island_metrics$Onychoprion.fuscatus, sqrt_colsize = sqrt(colsize))
+# #ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
+# legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,1000,2000,4000,8000))))
+# 
+# map_Onychoprion.fuscatus <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19,19,19,19),
+#                                                                             size = c(1,legend_colsizes))))
+# map_Onychoprion.fuscatus
+# 
+# 
+# ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Onychoprion_fuscatus.png",
+#        width = 16, height = 12, units = "cm")
+# 
+# 
+# 
+# ### Brown noddy
+# 
+# map_colsize <- map_base+
+#   geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Anous.stolidus), inherit.aes = FALSE, col = "steelblue2")+
+#   geom_point(data = subset(island_metrics, Anous.stolidus == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
+#   scale_size(name = "Brown noddy\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 500))
+# 
+# # pull out legend details to override 
+# map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
+#   mutate(colsize = island_metrics$Anous.stolidus, sqrt_colsize = sqrt(colsize))
+# #ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
+# legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,500))))
+# 
+# map_Anous.stolidus <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19),
+#                                                                                          size = c(1,legend_colsizes))))
+# map_Anous.stolidus
+# 
+# 
+# ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Anous_stolidus.png",
+#        width = 16, height = 12, units = "cm")
+# 
+# 
+# ### Lesser noddy
+# 
+# map_colsize <- map_base+
+#   geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Anous.tenuirostris), inherit.aes = FALSE, col = "steelblue2")+
+#   geom_point(data = subset(island_metrics, Anous.tenuirostris == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
+#   scale_size(name = "Lesser noddy\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 1000, 2000, 4000, 8000))
+# 
+# # pull out legend details to override 
+# map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
+#   mutate(colsize = island_metrics$Anous.tenuirostris, sqrt_colsize = sqrt(colsize))
+# #ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
+# legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,1000,2000,4000,8000))))
+# 
+# map_Anous.tenuirostris <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19,19,19,19),
+#                                                                                          size = c(1,legend_colsizes))))
+# map_Anous.tenuirostris
+# 
+# 
+# ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Anous_tenuirostris.png",
+#        width = 16, height = 12, units = "cm")
+# 
+# 
+# 
+# ### White tern
+# 
+# map_colsize <- map_base+
+#   geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Gygis.alba), inherit.aes = FALSE, col = "steelblue2")+
+#   geom_point(data = subset(island_metrics, Gygis.alba == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
+#   scale_size(name = "White tern\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 100))
+# 
+# # pull out legend details to override 
+# map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
+#   mutate(colsize = island_metrics$Gygis.alba, sqrt_colsize = sqrt(colsize))
+# #ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
+# legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,100))))
+# 
+# map_Gygis.alba <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19),
+#                                                                                        size = c(1,legend_colsizes))))
+# map_Gygis.alba
+# 
+# 
+# ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Gygis_alba.png",
+#        width = 16, height = 12, units = "cm")
+# 
+# 
+# 
+# 
+# ### Tropical shearwater
+# 
+# map_colsize <- map_base+
+#   geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Puffinus.bailloni), inherit.aes = FALSE, col = "steelblue2")+
+#   geom_point(data = subset(island_metrics, Puffinus.bailloni == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
+#   scale_size(name = "Tropical shearwater\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 500, 1000))
+# 
+# # pull out legend details to override 
+# map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
+#   mutate(colsize = island_metrics$Puffinus.bailloni, sqrt_colsize = sqrt(colsize))
+# #ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
+# legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,500, 1000))))
+# 
+# map_Puffinus.bailloni <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19,19),
+#                                                                                        size = c(1,legend_colsizes))))
+# map_Puffinus.bailloni
+# 
+# 
+# ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Puffinus_bailloni.png",
+#        width = 16, height = 12, units = "cm")
+# 
+# 
+# 
+# ### Wedge-tailed shearwater
+# 
+# map_colsize <- map_base+
+#   geom_point(data = island_metrics, aes(x = lon, y = lat, cex = Ardenna.pacifica), inherit.aes = FALSE, col = "steelblue2")+
+#   geom_point(data = subset(island_metrics, Ardenna.pacifica == 0), aes(x = lon, y = lat), pch = 4, inherit.aes = FALSE, col = "steelblue2", cex = 1)+
+#   scale_size(name = "Wedge-tailed shearwater\nbreeding \npairs", range=c(0,8), breaks = c(0, 50, 500, 1000, 2000))
+# 
+# # pull out legend details to override 
+# map_colsize_sizedata <- ggplot_build(map_colsize)$data[[6]] %>%
+#   mutate(colsize = island_metrics$Ardenna.pacifica, sqrt_colsize = sqrt(colsize))
+# #ggplot(data = map_colsize_sizedata, aes(x = sqrt_colsize, y=size))+geom_point()
+# legend_colsizes <- predict(lm(size ~ sqrt_colsize, data = map_colsize_sizedata), newdata = tibble(sqrt_colsize = sqrt(c(50,500,1000,2000))))
+# 
+# map_Ardenna.pacifica <- map_colsize + guides(size = guide_legend(override.aes = list(shape = c(4,19,19,19, 19),
+#                                                                                       size = c(1,legend_colsizes))))
+# map_Ardenna.pacifica
+# 
+# 
+# ggsave(plot = map_colsize, filename = "Figures/Separate Chagos maps/map_Ardenna_pacifica.png",
+#        width = 16, height = 12, units = "cm")
+# 
