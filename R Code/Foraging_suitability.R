@@ -4,7 +4,7 @@ pacman::p_load(tidyverse, sf, ggspatial)
 
 # Read in chagos shape file 
 
-chagos <- st_read("~/Library/CloudStorage/OneDrive-UniversityofExeter/Projects/BPMS/Breeding data/Project1_RFB Chagos foraging ecology/Rcode/Chagos/Chagos_v6.shp")
+chagos <- st_read("Data/Chagos_islands_shape_files/Chagos_v6.shp")
 chagos$DEPTHLABEL <- fct_relevel(chagos$DEPTHLABEL, "land", "shallow", "variable", "deep")
 
 sf_land <- chagos %>%
@@ -12,7 +12,7 @@ sf_land <- chagos %>%
 
 # Read in island polygons
 
-sf_cols_poly <- st_read("Data/Island data/island_polygons.shp")
+sf_cols_poly <- st_read("Data/Island_data/island_polygons.shp")
 
 map_base <- ggplot() + 
   scale_y_continuous(expand = c(0.01,0.01))+
@@ -61,7 +61,7 @@ library(dplyr)
 
 df_fprob_cumulative <- sf_hex_fprob %>%
   st_drop_geometry() %>%
-  arrange(Island, Group, Atoll, Year, dist_km) %>%
+  arrange(Island, Group, Atoll, Year, dist_m) %>%
   group_by(Island, Group, Atoll, Year) %>%
   mutate(cum_presence = cumsum(pred_num)) %>%
   ungroup() %>%

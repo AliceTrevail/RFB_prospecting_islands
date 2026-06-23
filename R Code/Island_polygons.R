@@ -4,7 +4,7 @@ pacman::p_load(tidyverse, sf, ggspatial)
 
 # 1. read in Pete's colony file for colony lat longs and attributes ####
 
-df_cols <- read_csv("Data/CA_Colonies_BRNumbers.csv") %>%
+df_cols <- read_csv("Data/Island_data/CA_Colonies_BRNumbers.csv") %>%
   rowwise() %>%
   dplyr::mutate(TotalAllSp = sum(c_across(Ardenna.pacifica:Gygis.alba)))%>%
   ungroup()%>%
@@ -16,7 +16,7 @@ sf_cols <- df_cols %>%
 
 # 2. read in chagos shape file ####
 
-chagos <- st_read("~/Library/CloudStorage/OneDrive-UniversityofExeter/Projects/BPMS/Breeding data/Project1_RFB Chagos foraging ecology/Rcode/Chagos/Chagos_v6.shp")
+chagos <- st_read("Data/Chagos_islands_shape_files/Chagos_v6.shp")
 chagos$DEPTHLABEL <- fct_relevel(chagos$DEPTHLABEL, "land", "shallow", "variable", "deep")
 
 sf_land <- chagos %>%
@@ -61,8 +61,8 @@ map_base_v <- ggplot() +
 map_base_v
 
 
-ggsave(plot = map_base_v, filename = "Figures/Islands_void.png",
-       width = 3, height = 5, units = "cm", bg = 'white')
+# ggsave(plot = map_base_v, filename = "Figures/Islands_void.png",
+#        width = 3, height = 5, units = "cm", bg = 'white')
 
 
 map_base +
@@ -135,7 +135,7 @@ map_base +
 
 # 4. Save island polygons ####
 
-# st_write(sf_cols_poly, "Data/Island data/island_polygons.shp", append=FALSE)
+st_write(sf_cols_poly, "Data/Island_data/island_polygons.shp", append=FALSE)
 
 
 # 5. Buffer islands by mean max foraging range of RFB from Trevail et al 2023, MEPS = 112.9km ####
@@ -254,4 +254,4 @@ map_base +
   theme_light()
 
 
-st_write(sf_hex_dists, "Data/Island data/hex_grid_island_distances.shp", append=FALSE)
+st_write(sf_hex_dists, "Data/Island_data/hex_grid_island_distances.shp", append=FALSE)
