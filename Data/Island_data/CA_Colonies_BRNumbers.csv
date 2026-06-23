@@ -1,0 +1,56 @@
+﻿Island,Group,Atoll,lat,lon,Rattus.rattus,Ardenna.pacifica,Puffinus.bailloni,Phaethon.lepturus,Phaethon.rubricauda,Sula.dactylatra,Sula.sula,Sula.leucogaster,Fregeta.minor,Fregeta.ariel,Thalasseus.bergii ,Sterna.dougallii ,Sterna.sumatrana ,Sternula.albifrons,Onychoprion.anaethetus,Onychoprion.fuscatus ,Anous.stolidus ,Anous.tenuirostris ,Gygis.alba 
+Diego Garcia,Diego Garcia,Diego Garcia,-7.233614,72.434836,P,18,2,6,5,0,8068,0,0,0,14,0,5,5,0,0,400,25,200
+West Island,Diego Garcia,Diego Garcia,-7.247971,72.384798,A,0,0,0,0,0,268,0,0,0,0,0,0,0,8,0,240,0,0
+Middle Island,Diego Garcia,Diego Garcia,-7.228792,72.408427,A,0,0,0,0,0,520,0,0,0,0,0,1,0,0,0,22,10,10
+East Island,Diego Garcia,Diego Garcia,-7.226989,72.418672,A,0,0,0,0,0,1113,3,0,0,0,0,0,0,0,0,34,40,15
+Sudest complex,Egmont Islands,Egmont Islands,-6.687426,71.385881,P,0,0,2,0,0,123,0,0,0,70,0,40,0,0,0,24,0,17
+Lubine complex,Egmont Islands,Egmont Islands,-6.665273,71.326087,P,0,0,0,0,0,1,0,0,0,0,0,30,0,0,0,40,0,30
+Danger,Danger Island,Great Chagos Bank,-6.388138,71.239501,A,40,10,0,0,0,3500,141,0,0,0,0,0,0,0,0,45,2400,35
+Sea Cow,Eagle Islands,Great Chagos Bank,-6.235758,71.294717,A,150,5,0,0,0,1400,0,0,0,5,0,14,0,11,0,140,1200,25
+Eagle Island,Eagle Islands,Great Chagos Bank,-6.188945,71.326368,P,0,0,1,0,0,10,0,0,0,0,0,0,0,0,0,40,10,20
+North Brother,Brothers,Great Chagos Bank,-6.13709,71.503509,A,3200,1200,0,0,0,377,740,300,15,10,0,0,0,6,10000,124,600,55
+Middle Brother,Brothers,Great Chagos Bank,-6.155773,71.516374,A,0,0,0,0,0,77,0,10,0,40,0,8,0,0,32000,80,25,35
+Resurgent,Brothers,Great Chagos Bank,-6.163492,71.52939,A,1,0,0,0,140,0,7,0,0,6,0,0,0,4,0,0,0,0
+South Brother,Brothers,Great Chagos Bank,-6.171536,71.540908,A,300,400,0,0,0,105,0,0,0,40,0,0,0,2,10000,55,11500,30
+Nelson's Island,Nelson's Island,Great Chagos Bank,-5.681233,72.315317,A,32,5,0,0,0,3300,25,250,50,0,0,0,0,9,0,650,12000,25
+Coin,Peros Banhos West,Peros Banhos,-5.454863,71.767985,P,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21,10,20
+Anglaise,Peros Banhos West,Peros Banhos,-5.439542,71.753426,P,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,0,20
+Monpatre complex,Peros Banhos West,Peros Banhos,-5.42357,71.751793,P,0,0,0,0,0,0,0,0,0,10,0,1,0,0,0,2,0,2
+Poule,Peros Banhos West,Peros Banhos,-5.40571,71.750948,P,0,0,1,0,0,0,0,0,0,0,3,2,0,0,0,8,0,2
+Petit Souer,Peros Banhos West,Peros Banhos,-5.363282,71.75526,P,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,4
+Grand Souer,Peros Banhos West,Peros Banhos,-5.344322,71.749741,P,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,7,0,4
+Finon,Peros Banhos West,Peros Banhos,-5.332507,71.744681,U,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1
+Verte,Peros Banhos West,Peros Banhos,-5.328935,71.743485,U,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,1,0,1
+Unnamed (Burtle),Peros Banhos West,Peros Banhos,-5.325452,71.741736,U,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Manon,Peros Banhos West,Peros Banhos,-5.315397,71.736523,U,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,15,10,5
+Pierre,Peros Banhos West,Peros Banhos,-5.293178,71.737468,P,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,7,0,3
+Petite Mapou,Peros Banhos West,Peros Banhos,-5.273466,71.747108,P,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,5,0,2
+Grande Mapou,Peros Banhos West,Peros Banhos,-5.265448,71.751033,P,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,10,15,10
+Diamant,Peros Banhos West,Peros Banhos,-5.253804,71.762402,P,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,20,15,10
+Passe,Peros Banhos West,Peros Banhos,-5.241879,71.816026,P,0,0,0,0,0,54,0,0,0,0,0,0,0,0,0,15,40,15
+Moresby,Peros Banhos West,Peros Banhos,-5.237077,71.82647,P,0,0,1,0,0,540,0,0,0,14,0,0,0,0,0,45,105,25
+Saint Brandon,Peros Banhos East,Peros Banhos,-5.248639,71.834052,A,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+Parasol,Peros Banhos East,Peros Banhos,-5.263843,71.84394,A,0,0,0,0,0,96,1,0,0,0,0,0,0,3,37500,30,140,10
+Longue,Peros Banhos East,Peros Banhos,-5.269437,71.871046,A,0,0,0,0,0,490,3,0,0,0,0,0,0,0,48000,140,1100,25
+Grand Bois Mangue,Peros Banhos East,Peros Banhos,-5.270935,71.885597,A,0,0,0,0,0,127,0,0,0,0,0,0,0,0,0,50,2000,10
+Petite Bois Mangue,Peros Banhos East,Peros Banhos,-5.269803,71.89585,A,0,0,0,0,0,120,0,0,0,0,0,0,0,0,2000,82,14000,13
+Manoel,Peros Banhos East,Peros Banhos,-5.258815,71.923091,U,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,15,10,15
+Unnamed (Marlin),Peros Banhos East,Peros Banhos,-5.24975,71.949456,A,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0
+Yeye,Peros Banhos East,Peros Banhos,-5.243668,71.962258,P,0,0,0,0,0,0,0,0,0,0,0,15,0,0,0,32,55,45
+Petite Coquillage,Peros Banhos East,Peros Banhos,-5.339626,71.973554,A,0,0,0,0,0,125,0,0,0,0,0,0,0,0,20000,140,1850,20
+Grand Coquillage,Peros Banhos East,Peros Banhos,-5.372884,71.969779,A,0,10,0,0,0,750,0,80,5,23,0,0,0,2,38000,125,1500,30
+Coin de Mire,Peros Banhos East,Peros Banhos,-5.427849,71.881207,A,2,0,0,0,24,0,0,0,0,0,4,1,0,21,0,0,0,0
+Vache Marine,Peros Banhos East,Peros Banhos,-5.424362,71.830215,E,0,0,0,0,0,0,0,0,0,25,0,0,0,0,0,5,0,7
+Fouquet,Peros Banhos West,Peros Banhos,-5.463051,71.811292,P,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,3
+Mapou de Coin,Peros Banhos West,Peros Banhos,-5.462513,71.792553,P,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,5
+Boddam,Salomon Islands,Salomon Islands,-5.359236,72.206099,P,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,25,10,30
+Diable,Salomon Islands,Salomon Islands,-5.346204,72.203988,P,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Anglaise,Salomon Islands,Salomon Islands,-5.325724,72.222645,P,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,20,10,15
+Passe,Salomon Islands,Salomon Islands,-5.302744,72.253219,A,0,0,2,0,0,27,4,0,0,0,0,0,0,0,0,40,400,25
+Mapou,Salomon Islands,Salomon Islands,-5.311378,72.264922,A,0,0,1,0,0,100,0,0,0,0,0,0,0,0,0,60,1600,13
+Takamaka,Salomon Islands,Salomon Islands,-5.331605,72.27098,P,0,0,5,0,0,302,0,0,0,0,0,25,0,0,0,65,100,25
+Fouquet,Salomon Islands,Salomon Islands,-5.341506,72.266621,P,0,0,1,0,0,17,0,0,0,0,3,53,0,0,0,25,0,10
+Sepulture,Salomon Islands,Salomon Islands,-5.349482,72.253583,P,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,1
+Jacobin,Salomon Islands,Salomon Islands,-5.350455,72.245396,E,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,2
+Sel,Salomon Islands,Salomon Islands,-5.354883,72.226799,E,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1
+Poule,Salomon Islands,Salomon Islands,-5.358853,72.221095,P,0,0,0,0,0,0,0,0,0,25,0,0,0,0,0,1,0,1
