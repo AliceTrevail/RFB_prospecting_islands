@@ -4,17 +4,17 @@ pacman::p_load(tidyverse, ggspatial, readxl, patchwork, magick, cowplot, sf, rna
 
 ### read in map layers ####
 
-chagos <- st_read("~/Library/CloudStorage/OneDrive-UniversityofExeter/Projects/2019-2026 BPMS/Breeding data/Project1_RFB Chagos foraging ecology/Rcode/Chagos/Chagos_v6.shp")
+chagos <- st_read("Data/Chagos_islands_shape_files/Chagos_v6.shp")
 chagos$DEPTHLABEL <- fct_relevel(chagos$DEPTHLABEL, "land", "shallow", "variable", "deep")
 
-RFB_ad_img <- image_read("~/Library/CloudStorage/OneDrive-UniversityofExeter/Species images/white morph red footed booby adult.png") %>%
+RFB_ad_img <- image_read("Figures/white morph red footed booby adult.png") %>%
   image_flop()
 
 
 ### read in island data: ####
 
 # Pete's data from excel
-pete_veg_file <- "~/Library/CloudStorage/OneDrive-UniversityofExeter/Projects/2019-2026 BPMS/2021 Pete Carr/20200409-Carr-Chagos_VegMan_Paper-Data-MASTER.xlsx"
+pete_veg_file <- "Data/20200409-Carr-Chagos_VegMan_Paper-Data-MASTER.xlsx"
 
 # metadata for island names / abbreviations
 # there are differences in formats and spellings that we need to fix!
@@ -30,7 +30,7 @@ length(unique(meta_island_names$island_abbreviation))
 
 
 #### island coordinates & seabird col sizes ####
-CAcols <- read_csv("Data/Island data/Breeding numbers.csv") %>%
+CAcols <- read_csv("Data/Island_data/Breeding numbers.csv") %>%
   mutate(Island = case_when(Island == "Grand Coquillage" ~ "Grande Coquillage", .default = Island), # fix spelling difference
          island_snake = snakecase::to_snake_case(Island), .after = Island,
          lat = case_when(island_snake == "diego_garcia" ~ -7.33, .default = lat))
